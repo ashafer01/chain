@@ -7,7 +7,7 @@ improves readability. Code golfers look elsewhere.
 
 Basic usage:
 
-```
+```python
 from chain import chain, args
 
 def multiply(a, b):
@@ -31,7 +31,7 @@ be passed into the next piped object.
 As the pipeline progresses, the return of the previous function is used as the
 argument to the next:
 
-```
+```python
 # continued from previous example
 
 def negate(a):
@@ -46,7 +46,7 @@ assert x == y
 If you need to *append* additional positional arguments or update keyword
 arguments, then you can add a new `args()` into the pipeline:
 
-```
+```python
 # continued from previous example
 
 x = chain(args(2, 3) | multiply | negate | args(-3) | multiply)
@@ -59,7 +59,7 @@ If you need to put the return value into arbitrary positions in a completely
 new argument set, you can define a function accepting the single return value
 from the pipeline and returning a new `args()`:
 
-```
+```python
 # continued from previous example
 
 def day_to_dt(day):
@@ -91,7 +91,7 @@ does not end with such a function.
 2. If you already have a sequence of callables that you use in a similar manner,
 you can append them to a pipeline by passing them as arguments to `chain()`:
 
-```
+```python
 # ...
 
 from chain import chain, args
